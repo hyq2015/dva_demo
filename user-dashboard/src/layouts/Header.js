@@ -14,6 +14,9 @@ function Header({location}) {
             <Menu.Item key="/users">
                 <Link to="/users"><Icon type="bars"/>Users</Link>
             </Menu.Item>
+            <Menu.Item key="/product">
+                <Link to="/product"><Icon type="bars"/>Product</Link>
+            </Menu.Item>
             <Menu.Item key="/umi">
                 <a rel="noopener noreferrer" href="https://github.com/umijs/umi" target="_blank">umi</a>
             </Menu.Item>

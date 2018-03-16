@@ -12,6 +12,9 @@ export default {
             return { ...state, list, total, page };
         },
     },
+    /**
+     * *表示这是一个generator函数
+     * */
     effects: {
         *fetch({ payload: { page = 1 } }, { call, put }) {
             const { data, headers } = yield call(usersService.fetch, { page });
