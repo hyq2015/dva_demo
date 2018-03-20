@@ -7,6 +7,7 @@ class Product extends Component{
     constructor(props){
         super(props);
         this.changePage=this.changePage.bind(this)
+        this.addCount=this.addCount.bind(this)
     }
     componentDidMount(){
         if(!this.props.user){
@@ -26,6 +27,11 @@ class Product extends Component{
             pathname: '/notfound'
         }));
     }
+    addCount(){
+        this.props.dispatch({
+            type:'products/addCount'
+        });
+    }
     render(){
         return(
             <div>
@@ -37,6 +43,7 @@ class Product extends Component{
                     </Button> : null
                 }
                 <Button type="primary" onClick={this.changePage}>点击跳转</Button>
+                <Button type="primary" onClick={this.addCount}>增加数字</Button>
             </div>
         )
     }

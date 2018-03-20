@@ -9,6 +9,12 @@ export default {
     reducers:{
         saveUser(state,{payload:user}){
             return {...state,user}
+        },
+        increment(state,{payLoad:{total:totalCount}}){//解构赋值
+            // {payLoad:{total:totalCount}}
+            // console.log(totalCount)
+            console.log(totalCount)
+            return {...state,total:totalCount}
         }
     },
     effects:{
@@ -21,6 +27,16 @@ export default {
                 type:'saveUser',
                 payload: user
             });
+        },
+        *addCount({},{call,put,select}){
+            let state=yield select(state=>state);
+            console.log(state.products)
+            yield put({
+                type:'increment',
+                payLoad:{
+                    total:state.products.total+1
+                }
+            })
         }
     },
     subscriptions:{
